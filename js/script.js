@@ -32,7 +32,7 @@ function compute() {
             <span class="calculator-highlight">${rate.value}%</span>.<br />
             You will receive an amount of
             <span class="calculator-highlight">${
-              amount.value * rate.value * year.value
+              amount.value * (rate.value/100) * year.value
             }</span>,<br />
             in the year <span class="calculator-highlight">${year.value}</span>
           </p>`;
@@ -40,5 +40,11 @@ function compute() {
 
 submit.addEventListener("click", (e) => {
   e.preventDefault();
+  if(Number(amount.value)<=0){
+    alert("Please enter a positive number")
+  }
+  else{
+
   compute();
+  }
 });
