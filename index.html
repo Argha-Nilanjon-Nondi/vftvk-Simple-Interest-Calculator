@@ -1,16 +1,72 @@
-<html>
-    <head>
-    <script src="script.js"></script>
-    <link rel="stylesheet" href="style.css">
-    </head>
-    <body>
-        <h1>Simple Interest Calculator</h1>
-
-        Amount <input type="number"  id="principal">  <br/>
-        Rate <input type="number"  id="rate">  <br/>
-        No. of Years <input type="number"  id="years">  <br/>
-        Interest : <span id="result"></span><br>
-
-        <button onclick="compute()">Compute</button>
-    </body>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="/css/style.css" rel="stylesheet" type="text/css" />
+    <title>Simple Interest Calculator</title>
+  </head>
+  <body>
+    <div class="calculator-container">
+      <h1 class="calculator-head">Simple Interest Calculator</h1>
+      <form class="calculator-input-group">
+        <div class="calculator-input">
+          <p>Amount</p>
+          <input type="number" id="calculator-input-amount" onchange="hideResult()" required />
+        </div>
+        <div class="calculator-input">
+          <p>Interest Rate</p>
+          <div class="calculator-input-range">
+            <input
+              type="range"
+              min="0.0"
+              step="0.1"
+              max="100.0"
+              value="10.2"
+              id="calculator-input-rate"
+              onchange="showRate()"
+              required
+            />
+            <p id="calculator-interest-display"></p>
+          </div>
+        </div>
+        <div class="calculator-input">
+          <p>No. of Years</p>
+          <div>
+            <select id="calculator-input-year" onchange="hideResult()">
+              <option value="1" selected>1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+            </select>
+          </div>
+        </div>
+        <div class="calculator-input">
+          <button type="submit" id="container-submit">
+            Compute Interest
+          </button>
+          <div></div>
+        </div>
+        <div id="calculator-result">
+          <p>
+            If you deposit <span class="calculator-highlight">200</span><br />
+            at an interest rate of
+            <span class="calculator-highlight">3.5%</span>.<br />
+            You will receive an amount of
+            <span class="calculator-highlight">156561565</span>,<br />
+            in the year <span class="calculator-highlight">2555</span>
+          </p>
+        </div>
+      </form>
+      <p class="calculator-copyright">&copy; Everyone Can Get Rich</p>
+    </div>
+    <script src="js/script.js"></script>
+  </body>
 </html>
